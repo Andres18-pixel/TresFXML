@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<GridPane hgap="10" vgap="10" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tuempresa.tresfxml.ClienteController">    <padding>
+        <Insets top="20" right="20" bottom="20" left="20" />
+    </padding>
+
+    <Label text="Nombre:" GridPane.rowIndex="0" GridPane.columnIndex="0" />
+    <TextField fx:id="txtNombre" GridPane.rowIndex="0" GridPane.columnIndex="1" GridPane.columnSpan="2" />
+
+    <Label text="Correo:" GridPane.rowIndex="1" GridPane.columnIndex="0" />
+    <TextField fx:id="txtCorreo" GridPane.rowIndex="1" GridPane.columnIndex="1" GridPane.columnSpan="2" />
+
+    <Label text="Teléfono:" GridPane.rowIndex="2" GridPane.columnIndex="0" />
+    <TextField fx:id="txtTelefono" GridPane.rowIndex="2" GridPane.columnIndex="1" GridPane.columnSpan="2" />
+
+    <Label text="Tipo de Cliente:" GridPane.rowIndex="3" GridPane.columnIndex="0" />
+    <ComboBox fx:id="cbTipoCliente" prefWidth="200" GridPane.rowIndex="3" GridPane.columnIndex="1" GridPane.columnSpan="2" />
+
+    <Label text="Documento ID:" GridPane.rowIndex="4" GridPane.columnIndex="0" />
+    <TextField fx:id="txtDocumento" editable="false" GridPane.rowIndex="4" GridPane.columnIndex="1" />
+    <Button text="Buscar..." onAction="#seleccionarDocumento" GridPane.rowIndex="4" GridPane.columnIndex="2" />
+
+    <Label text="Directorio Cliente:" GridPane.rowIndex="5" GridPane.columnIndex="0" />
+    <TextField fx:id="txtDirectorio" editable="false" GridPane.rowIndex="5" GridPane.columnIndex="1" />
+    <Button text="Buscar..." onAction="#seleccionarDirectorio" GridPane.rowIndex="5" GridPane.columnIndex="2" />
+
+    <HBox spacing="10" alignment="CENTER" GridPane.rowIndex="6" GridPane.columnIndex="0" GridPane.columnSpan="3">
+        <padding><Insets top="15" /></padding>
+        <Button text="Guardar" onAction="#guardar" />
+        <Button text="Crear Solicitud" onAction="#crearSolicitud" />
+        <Button text="Limpiar" onAction="#limpiar" />
+        <Button text="Cerrar" onAction="#cerrar" />
+    </HBox>
+</GridPane>
