@@ -1,4 +1,4 @@
-package com.tuempresa.tresfxml;
+package com.tuempresa.tresfxml.Controller;
 
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
