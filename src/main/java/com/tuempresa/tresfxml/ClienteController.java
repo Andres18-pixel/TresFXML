@@ -1,5 +1,6 @@
 package com.tuempresa.tresfxml;
 
+import com.tuempresa.tresfxml.model.Cliente;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -38,6 +39,11 @@ public class ClienteController {
     private void seleccionarDocumento(ActionEvent event) {
         FileChooser chooser = new FileChooser();
         chooser.setTitle("Seleccionar Documento de Identificación");
+
+        chooser.getExtensionFilters().adAll(
+                new FileChooser.ExtensionFilter("Imagenes", "*.png"),
+                new FileChooser.ExtensionFilter("PDF", "*.pdf")
+        );
         archivoDocumento = chooser.showOpenDialog(((Node) event.getSource()).getScene().getWindow());
         if (archivoDocumento != null) {
             txtDocumento.setText(archivoDocumento.getAbsolutePath());
@@ -60,6 +66,28 @@ public class ClienteController {
             mostrarAlerta(Alert.AlertType.INFORMATION, "Éxito", "Cliente guardado correctamente.");
         }
     }
+
+    @FXML
+    private void abrirSolicitudServicio() {
+        if(!validarCampos()){
+            return;
+        }
+
+        Cliente cliente = construirCliente();
+
+        try{
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/desarrollo/TresFXML/Solicitud.fxml"));
+            Parent root = loader.load()
+
+        }catch (IOException e){
+            mostrarAlerta(
+                    Alert.AlertType.ERROR,
+                    "Error",
+                    "No fue posible abrir el formulario. \n" + e.getMessage()
+            );
+        }
+    }
+
 
     @FXML
     private void crearSolicitud(ActionEvent event) {
